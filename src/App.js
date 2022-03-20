@@ -1,5 +1,6 @@
 import ListHeader from "./components/ListHeader";
 import List from "./components/List";
+import ListFooter from "./components/ListFooter";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -23,10 +24,15 @@ const defaultData = [
 
 function App() {
   const [data, setData] = useState(defaultData);
+  const [items, setItems] = useState([]);
 
   const addItem = (item) => {
     const updatedData = [...data, item];
     setData(updatedData);
+  }
+
+  const updateItems = (item) => {
+    setItems(item);
   }
 
   // DONE
@@ -56,6 +62,11 @@ function App() {
           data={data}
           onDoneClick={onDoneClick}
           onRemove={onRemove}
+          items={items}
+        />
+        <ListFooter
+          data={data}
+          updateItems={updateItems}
           clearCompleted={clearCompleted}
         />
       </section>
