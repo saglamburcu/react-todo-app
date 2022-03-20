@@ -11,7 +11,6 @@ function List({ data, onDoneClick, onRemove, clearCompleted }) {
   }, [data, selectedFilter]);
 
 
-  // datayı filtreler ama değiştirmez. Filtrelediği datayı setItems'e atar. yani items güncellenir.
   const filter = () => {
     let filteredData = data;
 
